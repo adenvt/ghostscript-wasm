@@ -49,6 +49,7 @@ export GS_LDFLAGS="\
   -s INCOMING_MODULE_JS_API='[\"noInitialRun\",\"noFSInit\",\"locateFile\",\"preRun\",\"instantiateWasm\"]' \
   -s NO_DISABLE_EXCEPTION_CATCHING=1 \
   -s MODULARIZE=1 \
+  -s EXIT_RUNTIME=1 \
 "
 
 emmake make \
