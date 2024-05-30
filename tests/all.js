@@ -21,6 +21,22 @@ describe("all", function () {
     assert.equal(exitStatus, 0);
   });
 
+  it("should render pdf to png", async function () {
+    const exitStatus = await callMain([
+      "-dSAFER",
+      "-dBATCH",
+      "-dNOPAUSE",
+      "-sDEVICE=png16m",
+      "-r96",
+      "-dGraphicsAlphaBits=4",
+      "-dTextAlphaBits=4",
+      "-dPDFSETTINGS=/printer",
+      "-sOutputFile=out/sample.png",
+      "assets/sample.pdf",
+    ]);
+    assert.equal(exitStatus, 0);
+  });
+
   // Ensure this doesn't call `process.exit`
   it("should exit properly on error", async function () {
     const exitStatus = await callMain(["unknown-subcommand"]);
